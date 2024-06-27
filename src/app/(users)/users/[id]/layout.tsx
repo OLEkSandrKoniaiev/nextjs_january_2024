@@ -1,16 +1,24 @@
 import React from "react";
-import { Metadata } from "next";
+import {Metadata} from "next";
+import {userService} from "@/services/api.service";
 
-export const metadata: Metadata = {
-    title: 'UserLayout metadata'
+// export const metadata: Metadata = {
+//     title: 'UserLayout metadata'
+// }
+
+export const generateMetadata = async ({params}: { params: { id: string } }): Promise<Metadata> => {
+    let user = await userService.getUserById(params.id);
+    return {
+        title: user?.name
+    }
 }
 
-type Props = {children: React.ReactNode}
+type Props = { children: React.ReactNode }
 const UserLayout = ({children}: Props) => {
     return (
-        <>
+        <div>
             {children}
-        </>
+        </div>
     );
 };
 
