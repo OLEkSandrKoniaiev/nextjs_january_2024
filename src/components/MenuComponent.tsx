@@ -17,6 +17,9 @@ const MenuComponent = () => {
                 <li>
                     <Link href={'/comments'}>comments</Link>
                 </li>
+                <li>
+                    <Link href={'/meals'}>meals</Link>
+                </li>
             </ul>
         </div>
     );
